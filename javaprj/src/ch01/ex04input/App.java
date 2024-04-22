@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws IOException {
@@ -13,17 +14,31 @@ public class App {
         int kor3 = 0;
 
         FileInputStream fis = new FileInputStream("res/kors.txt");
-        int code = fis.read();
+        Scanner scan = new Scanner(fis);
 
-        System.out.println(code);//56 -> "56"
-        System.out.printf("%c\n",code); //"8\n"
-        System.out.write(code); //56 --> console -> '8'
-        System.out.println("------------------");
+        kor1 = scan.nextInt(); // 85
+        kor2 = scan.nextInt(); // 90
+        kor3 = scan.nextInt(); // 90
+        kor1++;
 
+        scan.close();
+        fis.close();
+        // int code = fis.read();
 
+        // System.out.println(code);//56 -> "56"
+        // System.out.printf("%c\n",code); //"8\n"
+        // System.out.write(code); //56 --> console -> '8'
+        // System.out.println("------------------");
 
+        Scanner scan1 = new Scanner(System.in);
+        System.out.print("kor1:");
+        kor1 =  scan1.nextInt();
+        System.out.print("kor2:");
+        kor2 =  scan1.nextInt();
+        System.out.print("kor3:");
+        kor3 =  scan1.nextInt();
 
-
+        scan1.close();
 
         FileOutputStream fos = new FileOutputStream("res/kors.txt");
         PrintStream out = new PrintStream(fos);
